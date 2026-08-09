@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>АРКО — внутренняя отделка коммерческих помещений по всей России</title>
+<meta name="description" content="АРКО — генеральный подряд, fit-out, СМР и проектирование. 52 объекта в 14 городах России: офисы, общественные пространства, кафе и рестораны. Работаем с 2022 года.">
+<link rel="icon" href="assets/logo/arko-logo.svg">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip" href="#about">Перейти к содержанию</a>
+
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="#top" aria-label="АРКО — на главную">
+      <img src="assets/logo/arko-logo.svg" alt="АРКО">
+    </a>
+    <nav class="nav__links" aria-label="Разделы сайта">
+      <a href="#about">О компании</a>
+      <a href="#geo">География</a>
+      <a href="#process">Как работаем</a>
+      <a href="#projects">Проекты</a>
+      <a href="#team">Команда</a>
+    </nav>
+    <a class="nav__phone" href="tel:+79263026275">+7 (926) 302-62-75</a>
+  </div>
+</header>
+
+<!-- Экраны 1–3 — одна тёмная зона: фотография одна на всех и растворяется в чёрный,
+     иначе на стыках секций видно, как обрывается фон. -->
+<div class="dark">
+
+<!-- ЭКРАН 1. Титул -->
+<section class="hero" id="top">
+  <div class="hero__in">
+    <img class="hero__logo" src="assets/logo/arko-logo-white.svg" alt="АРКО">
+    <p class="eyebrow eyebrow--light">Генеральный подряд · Fit-out · Проектирование</p>
+    <h1 class="hero__h1">Внутренняя отделка<br>коммерческих помещений<br><span class="accent">по всей России</span></h1>
+    <p class="hero__sub">Офисы, общественные пространства, кафе и рестораны. 52 реализованных
+      объекта в 14 городах — от Санкт-Петербурга до Иркутска. Работаем с 2022 года.</p>
+    <div class="hero__cta">
+      <a class="btn btn--red" href="tel:+79263026275">Позвонить</a>
+      <a class="btn btn--ghost" href="mailto:shishkin@ar-ko.ru">Написать на почту</a>
+    </div>
+  </div>
+  <a class="hero__down" href="#about" aria-label="Дальше">↓</a>
+</section>
+
+<!-- ЭКРАН 2. О нас -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="head head--light">
+      <h2>О нас</h2><span class="head__en">about us</span>
+    </div>
+    <div class="figures" id="figures"></div>
+    <p class="about__line">Работали в 14 городах России — от Санкт-Петербурга до Иркутска</p>
+  </div>
+</section>
+
+<!-- ЭКРАН 3. Почему мы -->
+<section class="usp" id="usp">
+  <div class="wrap usp__in">
+    <div class="usp__left">
+      <div class="head head--light"><h2>Почему мы</h2><span class="head__en">why arko</span></div>
+      <p class="usp__claim">К нам<br>возвращаются</p>
+      <p class="usp__text">Почти каждый второй проект — повторный, от клиента, с которым мы уже
+        работали. Клиент не отдаёт второй проект подрядчику, с которым было тяжело на первом.</p>
+      <p class="usp__reg">Мы ведём проект по внутреннему регламенту.</p>
+    </div>
+    <div class="usp__card">
+      <p class="usp__num">44%</p>
+      <p class="usp__cap">объектов — повторные заказы</p>
+      <ul class="usp__rows">
+        <li><span>ПСБ</span><b>12 объектов</b></li>
+        <li><span>Carcade</span><b>9 объектов</b></li>
+        <li><span>Газпромнефть</span><b>2 объекта</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.dark -->
+
+<!-- ЭКРАН 4. География: интерактивная карта -->
+<section class="geo" id="geo">
+  <div class="wrap">
+    <div class="head"><h2>География</h2><span class="head__en">geography</span></div>
+    <p class="geo__lead"><span id="geo-count">14 городов · 52 реализованных объекта</span></p>
+
+    <div class="geo__grid">
+      <div class="map" id="map">
+        <p class="map__hint">Нажмите на город, чтобы увидеть объекты</p>
+        <!-- карта подставляется скриптом из assets/russia-map.svg -->
+      </div>
+
+      <aside class="panel" id="panel" aria-live="polite">
+        <div class="panel__empty">
+          <p class="panel__title">Выберите город</p>
+          <p class="panel__note">На карте отмечены города, где мы строили. Нажмите на любой —
+            здесь появится список объектов.</p>
+          <div class="chips" id="chips"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 5. Как мы работаем -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="head"><h2>Как мы работаем</h2><span class="head__en">process</span></div>
+    <p class="process__lead">Пять этапов внутреннего регламента — одинаково на каждом объекте</p>
+    <ol class="steps">
+      <li><i>01</i><h3>Выход на площадку</h3><p>Проектная команда, приёмка площадки по акту, мобилизация</p></li>
+      <li><i>02</i><h3>Проектирование и бюджет</h3><p>Согласование документации и заказных материалов с заказчиком</p></li>
+      <li><i>03</i><h3>Производство работ</h3><p>Контроль качества и культуры производства, КС-2 и КС-3</p></li>
+      <li><i>04</i><h3>Сдача объекта</h3><p>Исполнительная документация, внутренняя приёмка за 10 дней до сдачи</p></li>
+      <li><i>05</i><h3>Гарантия</h3><p>Обработка рекламаций, устранение замечаний, гарантийное удержание</p></li>
+    </ol>
+    <p class="process__foot">Регламент — не бюрократия. По нему реально работают все проектные
+      команды, и именно поэтому заказчики возвращаются к нам со следующим проектом.</p>
+  </div>
+</section>
+
+<!-- ЭКРАН 6. Услуги -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head"><h2>Услуги</h2><span class="head__en">services</span></div>
+    <div class="services__grid">
+      <article><h3>Генеральный подряд</h3><p>Управление проектом, представление интересов
+        заказчика, подбор и контроль субподрядчиков, ввод объекта в эксплуатацию.</p></article>
+      <article><h3>Проектирование</h3><p>Планировочные решения, дизайн-концепции, архитектурное
+        и инженерное проектирование, поставка мебели и оборудования.</p></article>
+      <article><h3>Строительство и реконструкция</h3><p>Строительные и отделочные работы,
+        вентиляция, кондиционирование, отопление, электроснабжение, слаботочные,
+        охранные и противопожарные системы.</p></article>
+      <article><h3>Эксплуатация и обслуживание</h3><p>Гарантийное и постгарантийное
+        обслуживание сданных объектов.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ЭКРАН 7. Разделитель -->
+<section class="divider" id="projects">
+  <div class="divider__photo" aria-hidden="true"></div>
+  <div class="wrap divider__in">
+    <div class="head"><h2>Проекты</h2><span class="head__en">projects</span></div>
+    <p class="divider__go">Поехали.</p>
+  </div>
+</section>
+
+<!-- ЭКРАН 8. Кейсы -->
+<div id="cases"></div>
+
+<!-- ЭКРАН 9. Клиенты -->
+<section class="clients" id="clients">
+  <div class="wrap">
+    <div class="head"><h2>Клиенты</h2><span class="head__en">clients</span></div>
+    <div class="clients__row" id="partners"></div>
+  </div>
+</section>
+
+<!-- ЭКРАН 10. Команда -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="head"><h2>Команда</h2><span class="head__en">team</span></div>
+    <div class="team__grid" id="team-grid"></div>
+    <!-- Руководители проектов временно сняты (решение Артура 09.08.2026): портреты
+         вырезаны со слайда старой презентации и выглядят коряво, ждём оригиналы.
+         Данные лежат в projects.json — чтобы вернуть блок, раскомментировать.
+    <p class="team__sub">Руководители проектов</p>
+    <div class="pm__grid" id="pm-grid"></div>
+    -->
+  </div>
+</section>
+
+<!-- ЭКРАН 11. Контакты -->
+<section class="contacts" id="contacts">
+  <div class="wrap contacts__in">
+    <div class="contacts__text">
+      <div class="head"><h2>Контакты</h2><span class="head__en">contacts</span></div>
+      <img class="contacts__logo" src="assets/logo/arko-logo.svg" alt="АРКО">
+      <p class="contacts__name">Евгений Шишкин</p>
+      <p class="contacts__role">управляющий партнёр</p>
+      <ul class="contacts__list">
+        <li><a href="mailto:shishkin@ar-ko.ru">shishkin@ar-ko.ru</a></li>
+        <li><a href="tel:+79263026275">+7 (926) 302-62-75</a></li>
+        <li><a href="https://ar-ko.ru">ar-ko.ru</a></li>
+      </ul>
+      <p class="contacts__since">Работаем с 2022 года<span>established in 2022</span></p>
+    </div>
+    <figure class="contacts__figure">
+      <img class="contacts__photo" src="assets/scenery/contacts.jpg"
+           alt="Зрительный зал Театра имени Г. Камала, Казань">
+      <figcaption>Театр имени Г. Камала, Казань</figcaption>
+    </figure>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p>ООО «АРКО» · ИНН 9705186470</p>
+    <p>Fit-out, СМР и проектирование в России</p>
+  </div>
+</footer>
+
+<!-- Просмотр фотографии -->
+<div class="lb" id="lb" hidden>
+  <button class="lb__close" id="lb-close" aria-label="Закрыть">×</button>
+  <button class="lb__nav lb__nav--prev" id="lb-prev" aria-label="Предыдущее фото">‹</button>
+  <img class="lb__img" id="lb-img" alt="">
+  <button class="lb__nav lb__nav--next" id="lb-next" aria-label="Следующее фото">›</button>
+  <p class="lb__cap" id="lb-cap"></p>
+</div>
+
+<script src="data/projects.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
