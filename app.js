@@ -37,9 +37,21 @@
 
   /* ---------- шапка ---------- */
 
+  // Шапка ведёт себя по-разному над тёмной зоной и над светлой частью страницы:
+  // логотип показывается, когда титул уехал вверх, а белая подложка — только когда
+  // под шапкой светлый фон, иначе она уродливо ложится на тёмные экраны.
   var nav = byId('nav');
-  var onScroll = function () { nav.classList.toggle('is-stuck', window.scrollY > 40); };
+  var hero = byId('top');
+  var dark = document.querySelector('.dark');
+  var onScroll = function () {
+    var navH = nav.offsetHeight;
+    var heroEnd = (hero ? hero.offsetHeight : 600) - navH;
+    var darkEnd = (dark ? dark.offsetHeight : 1200) - navH;
+    nav.classList.toggle('show-logo', window.scrollY > heroEnd * 0.75);
+    nav.classList.toggle('is-stuck', window.scrollY > darkEnd);
+  };
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
   onScroll();
 
   /* ---------- цифры о компании ---------- */

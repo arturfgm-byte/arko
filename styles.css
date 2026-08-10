@@ -107,6 +107,10 @@ h1, h2, h3, .num, .display {
   max-width: var(--wrap); margin: 0 auto; padding: 14px var(--field);
   display: flex; align-items: center; gap: 32px;
 }
+/* На титульном экране логотип уже стоит крупно — в шапке он в этот момент лишний
+   и только двоится. Появляется, когда титул уехал вверх. */
+.nav__logo { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s; }
+.nav.show-logo .nav__logo { opacity: 1; visibility: visible; }
 .nav__logo img { height: 30px; filter: brightness(0) invert(1); transition: filter .25s; }
 .nav.is-stuck .nav__logo img { filter: none; }
 .nav__links { display: flex; gap: 26px; margin-left: auto; }
@@ -151,7 +155,7 @@ h1, h2, h3, .num, .display {
 .dark > * { position: relative; z-index: 1; }
 
 .hero { min-height: 100svh; display: flex; align-items: center; }
-.hero__logo { height: clamp(46px, 5.2vw, 76px); width: auto; margin-bottom: 30px; }
+.hero__logo { height: clamp(78px, 11vw, 168px); width: auto; margin-bottom: clamp(26px, 3vw, 44px); }
 .hero__in { position: relative; z-index: 2; max-width: var(--wrap); margin: 0 auto;
             padding: 120px var(--field) 90px; width: 100%; }
 .hero__h1 {

@@ -1,26 +1,25 @@
-# Настройки для хостинга reg.ru (Apache). Нужны при размещении сайта на ar-ko.ru.
+# Настройки для хостинга reg.ru.
+#
+# Перевода на https здесь НЕТ намеренно. На этом хостинге запрос принимает nginx,
+# а .htaccess читает Apache за ним, и признак защищённого соединения до Apache
+# не доходит — правило срабатывало бесконечно (ERR_TOO_MANY_REDIRECTS).
+# Перенаправление на https включается галочкой в панели, в настройках сайта.
 
 RewriteEngine On
 
-# Единственный адрес сайта — https:// без www. Прежний сайт отдавался и по http,
-# и канонической считалась незащищённая версия — для поиска это два разных сайта.
-RewriteCond %{HTTPS} !=on
-RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
+# Адрес с www склеиваем с адресом без www — у сайта должен быть один адрес.
+# Здесь цикла быть не может: после перехода имя уже без www, условие не сработает.
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-# На прежнем сайте была вторая страница — /projects. Чтобы её адрес не отдавал 404
-# и не терял накопленный вес, переводим на раздел проектов новой страницы.
+# Прежний адрес второй страницы, чтобы не отдавал ошибку
 RewriteRule ^projects/?$ /#projects [R=301,L]
 
-# Сжатие: страница со шрифтами и данными весит заметно меньше в пути
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
   AddOutputFilterByType DEFLATE application/javascript application/json image/svg+xml
 </IfModule>
 
-# Кеш: фотографии и шрифты не меняются, пусть браузер их не перекачивает
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType image/jpeg "access plus 1 year"
