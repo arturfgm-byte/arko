@@ -371,42 +371,47 @@ h1, h2, h3, .num, .display {
                                object-position: 50% 45%; }
 .case__ph--ma { clip-path: polygon(17.43% 0, 32.19% 0, 56.05% 100%, 0 100%, 0 73.06%); }
 .case__ph--mb { clip-path: polygon(34.58% 0, 100% 0, 100% 84.03%, 54.64% 84.03%); }
-.case__side { position: absolute; left: 64.7%; top: 55%; right: 3.5%; }
-.case__logo { height: 7cqw; max-height: 74px; width: auto; object-fit: contain;
-              object-position: left center; margin-bottom: 4cqw; }
+/* Колонка текста уплотнена 06.10.2026, чтобы под ней поместилась «Смотреть все фото»
+   даже у кейсов с семью городами; всё в долях ширины, без пиксельных потолков. */
+.case__side { position: absolute; left: 64.7%; top: 52.5%; right: 3.5%; }
+.case__logo { height: 5.2cqw; width: auto; object-fit: contain;
+              object-position: left center; margin-bottom: 2.4cqw; }
 .case__name { font-family: 'Mont', system-ui, sans-serif; font-weight: 800;
-              font-size: 2.6cqw; text-transform: uppercase; margin-bottom: 3cqw; }
+              font-size: 2.6cqw; text-transform: uppercase; margin-bottom: 2.2cqw; }
 .case__works { list-style: none; }
 .case__works li { font-family: 'Mont', system-ui, sans-serif; font-weight: 600;
                   font-size: 1.15cqw; letter-spacing: .09em; text-transform: uppercase;
-                  margin-bottom: 1.1cqw; display: flex; gap: .9cqw; align-items: baseline; }
+                  margin-bottom: .85cqw; display: flex; gap: .9cqw; align-items: baseline; }
 .case__works li::before { content: ''; width: .28cqw; height: 1.2cqw; background: var(--red);
                           flex: none; }
-.case__cities { margin-top: 2.2cqw; display: grid; grid-template-columns: 1fr 1fr;
+.case__cities { margin-top: 1.6cqw; display: grid; grid-template-columns: 1fr 1fr;
                 gap: .4cqw 1.2cqw; }
+.case__cities--wide { grid-template-columns: repeat(3, auto); justify-content: start; }
 .case__cities span { font-family: 'Mont', system-ui, sans-serif; font-weight: 600;
                      font-size: .95cqw; letter-spacing: .14em; text-transform: uppercase;
                      color: var(--mute); }
 .case__lead { display: none; }
-/* кнопка «Смотреть все фото»: в раскладке видно четыре кадра, остальные — в просмотре.
-   Лежит на нижнем кадре слева: под текстом кейса места нет, когда городов много. */
-.case__all { position: absolute; left: 2.2%; bottom: 4.5%; z-index: 3; display: inline-flex; align-items: center; gap: .8cqw;
-             font-family: 'Mont', system-ui, sans-serif; font-weight: 700; font-size: 1.05cqw;
-             letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: #fff;
-             border: 2px solid var(--red); padding: .9cqw 1.6cqw; cursor: pointer;
-             transition: background .2s, color .2s; }
-.case__all::after { content: '→'; color: var(--red); transition: color .2s; }
-.case__all:hover { background: var(--red); color: #fff; }
-.case__all:hover::after { color: #fff; }
+/* «Смотреть все фото» — под текстом кейса, в языке списка работ: капс Mont, красная черта */
+.case__all { margin-top: 1.8cqw; display: inline-flex; align-items: center; gap: .9cqw;
+             font-family: 'Mont', system-ui, sans-serif; font-weight: 700; font-size: 1.15cqw;
+             letter-spacing: .09em; text-transform: uppercase; color: var(--ink); background: none;
+             border: 0; border-bottom: .2cqw solid var(--red); padding: 0 0 .5cqw; cursor: pointer; }
+.case__all::after { content: '→'; color: var(--red); transition: transform .2s; }
+.case__all:hover { color: var(--red); }
+.case__all:hover::after { transform: translateX(.5cqw); }
 
 /* ---------- клиенты ---------- */
 
 .clients { padding: clamp(60px, 7vw, 100px) 0; }
-.clients__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 30px 26px;
-                align-items: center; margin-top: 40px; }
-.clients__row img { max-height: 46px; width: auto; margin: 0 auto;
-                    filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
-.clients__row img:hover { filter: none; opacity: 1; }
+.marquee { margin-top: 40px; overflow: hidden; cursor: ew-resize; touch-action: pan-y;
+           -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+                   mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.marquee__row { padding: 14px 0; }
+.marquee__track { display: flex; align-items: center; gap: clamp(40px, 5vw, 84px); width: max-content;
+                  will-change: transform; user-select: none; }
+.marquee__track img { height: 46px; width: auto; flex: none;
+                      filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
+.marquee__track img:hover { filter: none; opacity: 1; }
 
 /* ---------- команда ---------- */
 
@@ -488,7 +493,6 @@ h1, h2, h3, .num, .display {
   .figures { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(2, 1fr); gap: 30px; }
   .services__grid { grid-template-columns: repeat(2, 1fr); }
-  .clients__row { grid-template-columns: repeat(4, 1fr); }
   .geo__grid { grid-template-columns: 1fr; }
   .panel { min-height: 0; }
   .nav__links { display: none; }
@@ -500,7 +504,6 @@ h1, h2, h3, .num, .display {
   .team__photo { height: 260px; }
   .contacts__in { grid-template-columns: 1fr; }
   .divider__photo { width: 100%; opacity: .35; clip-path: none; }
-  .clients__row { grid-template-columns: repeat(3, 1fr); }
 
   /* Подписи городов в мелком масштабе не читаются — остаются только точки,
      а выбор города идёт кнопками под картой. Точки при этом надо укрупнить:
@@ -511,6 +514,7 @@ h1, h2, h3, .num, .display {
   .city__ring { r: 26; }
   .city__dot { r: 11; }
   .city.is-active .city__ring { r: 34; }
+  .marquee__track img { height: 36px; }
 
   /* Диагональная раскладка кейса рассчитана на широкий экран: на телефоне
      кадры выстраиваются в обычную сетку, текст уходит вниз. */
@@ -527,8 +531,7 @@ h1, h2, h3, .num, .display {
   .case__cities { margin-top: 14px; gap: 4px 14px; }
   .case__cities span { font-size: 11px; }
   .case__lead { display: block; color: var(--mute); font-size: 14px; margin-top: 14px; }
-  .case__all { position: static; grid-column: 1 / -1; justify-self: start; font-size: 12px;
-               padding: 12px 18px; margin: 0 0 18px var(--field); gap: 8px; }
+  .case__all { font-size: 12px; margin-top: 18px; gap: 8px; border-bottom-width: 2px; padding-bottom: 6px; }
   /* ярлык на телефоне встаёт в поток: в углу он ложился поверх текста */
   .tag { position: static; grid-column: 1 / -1; justify-self: start; height: 34px;
          font-size: 11px; padding: 0 18px; margin: 0 0 24px var(--field);
@@ -538,7 +541,6 @@ h1, h2, h3, .num, .display {
 @media (max-width: 520px) {
   .figures { grid-template-columns: 1fr; }
   .steps, .services__grid { grid-template-columns: 1fr; }
-  .clients__row { grid-template-columns: repeat(2, 1fr); }
   .hero__cta { flex-direction: column; align-items: stretch; }
 }
 

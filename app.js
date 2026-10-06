@@ -228,32 +228,81 @@
     var list = (cityList[c.id] || []).slice();
     if (c.extra) { list.push(c.extra); }
     if (list.length) {
-      var box = el('div', 'case__cities');
+      var box = el('div', 'case__cities' + (list.length > 4 ? ' case__cities--wide' : ''));
       list.forEach(function (name) { box.appendChild(el('span', null, name)); });
       side.appendChild(box);
     }
     if (c.lead) { side.appendChild(el('p', 'case__lead', c.lead)); }
-    section.appendChild(side);
-    if (g.length) {   // в раскладке видно 4 кадра, остальные — в просмотре; кнопка лежит на нижнем фото
-      var all = el('button', 'case__all', 'Смотреть все фото · ' + g.length);
+    if (g.length) {   // в раскладке видно 4 кадра, остальные — в просмотре
+      var all = el('button', 'case__all', 'Смотреть все фото');
       all.type = 'button';
       all.setAttribute('data-client', c.id);
-      section.appendChild(all);
+      side.appendChild(all);
     }
+    section.appendChild(side);
     section.appendChild(el('div', 'tag', c.tag));
     casesBox.appendChild(section);
   });
 
   /* ---------- клиенты и команда ---------- */
 
+  /* Логотипы — две бегущие строки навстречу друг другу. Сами едут медленно; курсор над
+     лентой задаёт скорость и направление (левее центра — влево, правее — вправо),
+     на телефоне ленту можно тянуть пальцем. При «уменьшить движение» стоят на месте. */
   var partners = byId('partners');
-  D.partners.forEach(function (name) {
-    var img = el('img');
-    img.src = 'assets/clients/partner-' + name + '.png';
-    img.alt = name;
-    img.loading = 'lazy';
-    partners.appendChild(img);
+  var half = Math.ceil(D.partners.length / 2);
+  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var BASE = still ? 0 : 28, MAX = 320;            // пикселей в секунду
+  var rows = [D.partners.slice(0, half), D.partners.slice(half)].map(function (names, r) {
+    var line = el('div', 'marquee__row');
+    var track = el('div', 'marquee__track');
+    for (var k = 0; k < 2; k++) {                  // две копии подряд — лента без шва
+      names.forEach(function (name) {
+        var img = el('img');
+        img.src = 'assets/clients/partner-' + name + '.png';
+        img.alt = k ? '' : name;
+        img.draggable = false;
+        track.appendChild(img);
+      });
+    }
+    line.appendChild(track);
+    partners.appendChild(line);
+    return { track: track, dir: r ? 1 : -1, x: 0, v: BASE, target: BASE };
   });
+  var dragging = null;
+  partners.addEventListener('mousemove', function (e) {
+    var b = partners.getBoundingClientRect();
+    var k = (e.clientX - b.left) / b.width * 2 - 1;  // от -1 (левый край) до 1 (правый)
+    var speed = Math.abs(k) < 0.12 ? 0 : k * MAX;    // у центра лента замирает
+    rows.forEach(function (row) { row.target = speed; });   // обе строки идут за курсором
+  });
+  partners.addEventListener('mouseleave', function () {
+    rows.forEach(function (row) { row.target = BASE * row.dir; });
+  });
+  partners.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse') { return; }
+    dragging = { x: e.clientX };
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!dragging) { return; }
+    var dx = e.clientX - dragging.x; dragging.x = e.clientX;
+    rows.forEach(function (row) { row.x += dx; });
+  });
+  window.addEventListener('pointerup', function () { dragging = null; });
+  rows.forEach(function (row) { row.v = row.target = BASE * row.dir; });
+  var last = performance.now();
+  var tick = function (now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    rows.forEach(function (row) {
+      row.v += (row.target - row.v) * Math.min(1, dt * 3);   // плавный разгон и торможение
+      if (!dragging) { row.x += row.v * dt; }
+      var w = row.track.scrollWidth / 2;
+      if (w > 0) { row.x = ((row.x % w) - w) % w; }          // держим смещение в [-w, 0)
+      row.track.style.transform = 'translate3d(' + row.x.toFixed(1) + 'px,0,0)';
+    });
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 
   var people = function (host, list, photoClass) {
     if (!host || !list) { return; }        // блок может быть снят со страницы

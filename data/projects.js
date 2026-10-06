@@ -612,6 +612,7 @@ window.ARKO = {
     "pmg-onegin",
     "officeflex",
     "aspace",
+    "step",
     "drt",
     "ancor",
     "pgk-full",
