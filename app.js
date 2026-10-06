@@ -234,6 +234,12 @@
     }
     if (c.lead) { side.appendChild(el('p', 'case__lead', c.lead)); }
     section.appendChild(side);
+    if (g.length) {   // в раскладке видно 4 кадра, остальные — в просмотре; кнопка лежит на нижнем фото
+      var all = el('button', 'case__all', 'Смотреть все фото · ' + g.length);
+      all.type = 'button';
+      all.setAttribute('data-client', c.id);
+      section.appendChild(all);
+    }
     section.appendChild(el('div', 'tag', c.tag));
     casesBox.appendChild(section);
   });
@@ -297,6 +303,8 @@
   casesBox.addEventListener('click', function (e) {
     var img = e.target.closest('.case__ph');
     if (img) { open(img.getAttribute('data-client'), +img.getAttribute('data-index')); }
+    var all = e.target.closest('.case__all');
+    if (all) { open(all.getAttribute('data-client'), 0); }
   });
   byId('lb-close').addEventListener('click', close);
   byId('lb-prev').addEventListener('click', function (e) { e.stopPropagation(); step(-1); });

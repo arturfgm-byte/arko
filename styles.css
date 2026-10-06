@@ -388,6 +388,16 @@ h1, h2, h3, .num, .display {
                      font-size: .95cqw; letter-spacing: .14em; text-transform: uppercase;
                      color: var(--mute); }
 .case__lead { display: none; }
+/* кнопка «Смотреть все фото»: в раскладке видно четыре кадра, остальные — в просмотре.
+   Лежит на нижнем кадре слева: под текстом кейса места нет, когда городов много. */
+.case__all { position: absolute; left: 2.2%; bottom: 4.5%; z-index: 3; display: inline-flex; align-items: center; gap: .8cqw;
+             font-family: 'Mont', system-ui, sans-serif; font-weight: 700; font-size: 1.05cqw;
+             letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: #fff;
+             border: 2px solid var(--red); padding: .9cqw 1.6cqw; cursor: pointer;
+             transition: background .2s, color .2s; }
+.case__all::after { content: '→'; color: var(--red); transition: color .2s; }
+.case__all:hover { background: var(--red); color: #fff; }
+.case__all:hover::after { color: #fff; }
 
 /* ---------- клиенты ---------- */
 
@@ -517,6 +527,8 @@ h1, h2, h3, .num, .display {
   .case__cities { margin-top: 14px; gap: 4px 14px; }
   .case__cities span { font-size: 11px; }
   .case__lead { display: block; color: var(--mute); font-size: 14px; margin-top: 14px; }
+  .case__all { position: static; grid-column: 1 / -1; justify-self: start; font-size: 12px;
+               padding: 12px 18px; margin: 0 0 18px var(--field); gap: 8px; }
   /* ярлык на телефоне встаёт в поток: в углу он ложился поверх текста */
   .tag { position: static; grid-column: 1 / -1; justify-self: start; height: 34px;
          font-size: 11px; padding: 0 18px; margin: 0 0 24px var(--field);
