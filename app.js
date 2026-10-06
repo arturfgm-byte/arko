@@ -195,7 +195,13 @@
     var section = el('section', 'case');
     section.id = 'case-' + c.id;
     var g = c.gallery || [];
-    ['a', 'b', 'c', 'd'].forEach(function (slot, i) {
+    // mergeTop: верх — один широкий кадр, рассечённый диагональю на зоны a и b
+    // (как на слайде кейса в презентации); тогда c и d берут 2-й и 3-й кадры.
+    var slots = c.mergeTop
+      ? [['ma', 0], ['mb', 0], ['c', 1], ['d', 2]]
+      : [['a', 0], ['b', 1], ['c', 2], ['d', 3]];
+    slots.forEach(function (s) {
+      var slot = s[0], i = s[1];
       if (!g[i]) { return; }
       var img = el('img', 'case__ph case__ph--' + slot);
       img.src = g[i].full;

@@ -364,6 +364,13 @@ h1, h2, h3, .num, .display {
 .case__ph--c { left: 80.90%; top: 0; width: 19.10%; height: 50.00%; }
 .case__ph--d { left: 0; top: 62.10%; width: 57.36%; height: 37.90%;
                clip-path: polygon(0 0, 78.96% 0, 100% 100%, 0 100%); }
+/* Склеенный верх (mergeTop): оба куска — одна картинка на общей рамке зон a+b
+   (79,40% × 59,50%), каждый вырезан своей маской. Изображение продолжается через
+   разрез, как на слайде презентации; кадрирование то же — центр, 45% по высоте. */
+.case__ph--ma, .case__ph--mb { left: 0; top: 0; width: 79.40%; height: 59.50%;
+                               object-position: 50% 45%; }
+.case__ph--ma { clip-path: polygon(17.43% 0, 32.19% 0, 56.05% 100%, 0 100%, 0 73.06%); }
+.case__ph--mb { clip-path: polygon(34.58% 0, 100% 0, 100% 84.03%, 54.64% 84.03%); }
 .case__side { position: absolute; left: 64.7%; top: 55%; right: 3.5%; }
 .case__logo { height: 7cqw; max-height: 74px; width: auto; object-fit: contain;
               object-position: left center; margin-bottom: 4cqw; }
@@ -500,6 +507,8 @@ h1, h2, h3, .num, .display {
   .case { aspect-ratio: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
   .case__ph { position: static; width: 100% !important; height: 30vw !important;
               clip-path: none !important; }
+  .case__ph--ma { grid-column: 1 / -1; }   /* широкий кадр — на всю ширину */
+  .case__ph--mb { display: none; }          /* вторая половина того же кадра не нужна */
   .case__side { position: static; grid-column: 1 / -1; padding: 22px var(--field) 10px; }
   .case__logo { height: 40px; margin-bottom: 16px; }
   .case__name { font-size: 22px; margin-bottom: 14px; }

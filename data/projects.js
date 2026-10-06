@@ -128,6 +128,7 @@ window.ARKO = {
   "clients": [
     {
       "id": "pmg",
+      "mergeTop": true,
       "name": "PMG Онегин",
       "tag": "Офисы",
       "works": [
@@ -137,10 +138,12 @@ window.ARKO = {
       ],
       "lead": "Сервисный офис на Малой Полянке: open space, переговорные, лаунж-зоны и комнаты отдыха. Полный цикл — от отделки до инженерных систем. Сдан в 2026 году.",
       "photos": [
+        "pmg-onegin/pmg-10-launzh-shirokiy.jpg",
+        "pmg-onegin/pmg-11-koridor.jpg",
+        "pmg-onegin/pmg-04-resepshn.jpg",
         "pmg-onegin/pmg-01-launzh.jpg",
         "pmg-onegin/pmg-02-open-space.jpg",
         "pmg-onegin/pmg-03-peregovornaya.jpg",
-        "pmg-onegin/pmg-04-resepshn.jpg",
         "pmg-onegin/pmg-05-zona-otdyha.jpg",
         "pmg-onegin/pmg-06-lobbi.jpg",
         "pmg-onegin/pmg-07-lobbi-2.jpg",
@@ -148,6 +151,18 @@ window.ARKO = {
         "pmg-onegin/pmg-09-solyanaya.jpg"
       ],
       "gallery": [
+        {
+          "full": "assets/photos/pmg-onegin/pmg-10-launzh-shirokiy.jpg",
+          "thumb": "assets/photos/pmg-onegin/pmg-10-launzh-shirokiy-thumb.jpg"
+        },
+        {
+          "full": "assets/photos/pmg-onegin/pmg-11-koridor.jpg",
+          "thumb": "assets/photos/pmg-onegin/pmg-11-koridor-thumb.jpg"
+        },
+        {
+          "full": "assets/photos/pmg-onegin/pmg-04-resepshn.jpg",
+          "thumb": "assets/photos/pmg-onegin/pmg-04-resepshn-thumb.jpg"
+        },
         {
           "full": "assets/photos/pmg-onegin/pmg-01-launzh.jpg",
           "thumb": "assets/photos/pmg-onegin/pmg-01-launzh-thumb.jpg"
@@ -159,10 +174,6 @@ window.ARKO = {
         {
           "full": "assets/photos/pmg-onegin/pmg-03-peregovornaya.jpg",
           "thumb": "assets/photos/pmg-onegin/pmg-03-peregovornaya-thumb.jpg"
-        },
-        {
-          "full": "assets/photos/pmg-onegin/pmg-04-resepshn.jpg",
-          "thumb": "assets/photos/pmg-onegin/pmg-04-resepshn-thumb.jpg"
         },
         {
           "full": "assets/photos/pmg-onegin/pmg-05-zona-otdyha.jpg",
