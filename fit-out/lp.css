@@ -1,0 +1,179 @@
+/* Посадочная ar-ko.ru/fit-out/ под рекламу в Яндекс Директе.
+   Общие стили, шрифты и карта — из ../styles.css; здесь только то, чего нет на главной.
+   Страница должна быть лёгкой (Lighthouse «Производительность» 80+ на телефоне):
+   один фон на титуле, кейсы — по одной миниатюре, логотипы без бегущей строки. */
+
+.lp { padding-top: 58px; }                        /* шапка всегда белая и прибита сверху */
+.lp-nav .nav__in { padding-top: 12px; padding-bottom: 12px; }
+.lp-nav__logo img { height: 30px; width: auto; }
+.lp-nav .nav__links a { color: var(--ink); }
+.lp-nav__phone { color: var(--ink); margin-left: 0; font-size: 15px; }
+.lp-nav .nav__links + .lp-nav__phone { margin-left: 8px; }
+
+/* ---------- титул ---------- */
+
+.lp-hero {
+  position: relative; color: #fff; background: #000;
+  background-image: linear-gradient(90deg, rgba(0,0,0,.86) 0%, rgba(0,0,0,.62) 55%, rgba(0,0,0,.35) 100%),
+                    url('../assets/scenery/hero-lp.jpg');
+  background-size: cover; background-position: center 45%;
+}
+.lp-hero__in { padding-top: clamp(70px, 10vw, 140px); padding-bottom: clamp(60px, 8vw, 120px); }
+.lp-hero__h1 {
+  text-transform: uppercase; margin: 18px 0 22px; max-width: 15em;
+  font-size: clamp(30px, 5vw, 66px); line-height: 1.06;
+}
+.lp-hero__sub { color: rgba(255,255,255,.85); font-size: clamp(15px, 1.35vw, 19px); max-width: 40em; }
+.lp-hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px; margin-top: 34px; }
+.lp-hero__phone {
+  font-family: 'Mont', system-ui, sans-serif; font-weight: 800; color: #fff; text-decoration: none;
+  font-size: clamp(22px, 2.4vw, 32px); white-space: nowrap;
+}
+.lp-hero__phone:hover { color: var(--red); }
+.lp-hero__note { margin-top: 18px; color: rgba(255,255,255,.7); font-size: 14px; }
+
+/* ---------- цифры ---------- */
+
+.lp-figs { background: var(--panel); }
+.lp-figs__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.lp-figs__grid div { padding: clamp(22px, 3vw, 40px) 12px; border-left: 1px solid var(--line); }
+.lp-figs__grid div:first-child { border-left: 0; padding-left: 0; }
+.lp-figs__grid b { display: block; font-family: 'Mont', system-ui, sans-serif; font-weight: 800;
+                   font-size: clamp(24px, 3vw, 42px); line-height: 1.05; }
+.lp-figs__grid b::before { content: ''; display: block; width: 26px; height: 4px;
+                           background: var(--red); margin-bottom: 14px; }
+.lp-figs__grid span { display: block; color: var(--mute); font-size: 14px; margin-top: 8px; }
+
+/* ---------- карта ---------- */
+
+.lp-geo { padding: clamp(56px, 7vw, 100px) 0; }
+.lp-geo .panel { min-height: 0; }
+
+/* ---------- кейсы: карточки вместо диагональной раскладки главной ---------- */
+
+.lp-cases { padding: clamp(56px, 7vw, 100px) 0; background: var(--panel); }
+.lp-cases__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 36px; }
+.lp-case { background: #fff; display: flex; flex-direction: column; }
+.lp-case__img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--band); }
+.lp-case__img img { width: 100%; height: 100%; object-fit: cover; }
+.lp-case__tag { position: absolute; left: 0; bottom: 0; background: var(--red); color: #fff;
+                padding: 7px 16px 7px 14px; font-family: 'Mont', system-ui, sans-serif; font-weight: 600;
+                font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+                clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+.lp-case__body { padding: 20px 22px 24px; }
+.lp-case__name { font-family: 'Mont', system-ui, sans-serif; font-weight: 800; font-size: 19px;
+                 text-transform: uppercase; }
+.lp-case__lead { font-size: 14.5px; margin-top: 8px; }
+.lp-case__works { font-size: 12.5px; color: var(--mute); margin-top: 10px; }
+.lp-case__cities { font-family: 'Mont', system-ui, sans-serif; font-weight: 600; font-size: 11px;
+                   letter-spacing: .1em; text-transform: uppercase; color: var(--mute); margin-top: 12px; }
+.lp-cases__more { margin-top: 28px; }
+.lp-cases__more a { font-family: 'Mont', system-ui, sans-serif; font-weight: 600; font-size: 12px;
+                    letter-spacing: .1em; text-transform: uppercase; color: var(--red); text-decoration: none; }
+.lp-cases__more a:hover { text-decoration: underline; }
+
+/* ---------- процесс: этапы со сроками ---------- */
+
+.lp-process { padding: clamp(56px, 7vw, 100px) 0; }
+.lp-process .steps i { letter-spacing: .08em; }
+
+/* ---------- логотипы ---------- */
+
+.lp-logos { padding: clamp(50px, 6vw, 90px) 0; border-top: 1px solid var(--line); }
+.lp-logos__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px 34px;
+                  align-items: center; margin-top: 34px; }
+.lp-logos__grid img { max-height: 42px; width: auto; max-width: 100%; margin: 0 auto;
+                      filter: grayscale(1); opacity: .75; }
+
+/* ---------- форма ---------- */
+
+.lp-form { background: #0b0b0b; color: #fff; padding: clamp(56px, 7vw, 110px) 0; }
+.lp-form__in { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+.lp-form__claim { font-family: 'Mont', system-ui, sans-serif; font-weight: 800; text-transform: uppercase;
+                  font-size: clamp(24px, 2.8vw, 38px); line-height: 1.12; margin: 26px 0 18px; }
+.lp-form__note { color: rgba(255,255,255,.75); }
+.lp-form__or { margin-top: 30px; color: rgba(255,255,255,.75); }
+.lp-form__or a { font-family: 'Mont', system-ui, sans-serif; font-weight: 800; color: #fff;
+                 text-decoration: none; font-size: clamp(22px, 2.2vw, 30px); }
+.lp-form__or a:hover { color: var(--red); }
+
+.zf { display: grid; gap: 16px; background: #fff; color: var(--ink); padding: clamp(22px, 3vw, 40px); }
+.zf__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.zf label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #333; min-width: 0; }
+.zf__l b { color: var(--red); font-weight: 600; }
+.zf input:not([type="checkbox"]):not([type="file"]), .zf textarea {
+  font: inherit; font-size: 16px; color: var(--ink); width: 100%;   /* 16px — чтобы iPhone не увеличивал страницу */
+  border: 1px solid #cfcfcf; border-radius: 0; padding: 12px 13px; background: #fff;
+}
+.zf input:focus, .zf textarea:focus { outline: 2px solid var(--ink); outline-offset: -1px; border-color: var(--ink); }
+.zf textarea { resize: vertical; min-height: 88px; }
+.zf__file { position: relative; }
+.zf__file input { position: absolute; inset: auto 0 0 0; height: 46px; opacity: 0; cursor: pointer; width: 100%; }
+.zf__file-btn { display: inline-block; align-self: flex-start; border: 1px solid var(--ink); padding: 12px 16px;
+                font-family: 'Mont', system-ui, sans-serif; font-weight: 600; font-size: 11px;
+                letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+.zf__file:hover .zf__file-btn { background: var(--ink); color: #fff; }
+.zf__file .zf__file-name { color: var(--mute); font-size: 12.5px; font-weight: 400; overflow-wrap: anywhere; }
+.zf__file:focus-within .zf__file-btn { outline: 2px solid var(--red); outline-offset: 2px; }
+.zf__trap { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.zf__consent { flex-direction: row !important; align-items: flex-start; gap: 10px !important; font-weight: 400 !important; }
+.zf__consent input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: var(--red); }
+.zf__consent span { color: #444 !important; font-size: 13px; }
+.zf__send { justify-self: start; min-width: 240px; }
+.zf__send:disabled { opacity: .6; cursor: wait; }
+.zf__status { font-size: 14px; min-height: 1.4em; }
+.zf__status--ok { color: #0a7a2f; font-weight: 600; }
+.zf__status--err { color: var(--red); }
+.zf.is-sent .zf__send { background: var(--ink); }
+
+/* ---------- контакты ---------- */
+
+.lp-contacts { padding: clamp(50px, 6vw, 90px) 0; }
+.lp-contacts__in { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 26px; }
+.lp-contacts__phone { display: block; margin-top: 10px; font-family: 'Mont', system-ui, sans-serif; font-weight: 800;
+                      font-size: clamp(30px, 5vw, 64px); line-height: 1; color: var(--ink); text-decoration: none; }
+.lp-contacts__phone:hover { color: var(--red); }
+.lp-contacts__list { list-style: none; font-size: 16px; }
+.lp-contacts__list li { padding: 4px 0; }
+.lp-contacts__list a { text-decoration: none; border-bottom: 1px solid var(--line); }
+.lp-contacts__list a:hover { border-color: var(--red); }
+.foot a { color: inherit; }
+
+/* кнопка звонка внизу экрана — только на телефоне */
+.lp-call { display: none; }
+
+@media (max-width: 700px) {
+  .lp-hero {
+    background-image: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.6) 100%),
+                      url('../assets/scenery/hero-lp-m.jpg');
+  }
+}
+
+@media (max-width: 1100px) {
+  .lp-cases__grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-logos__grid { grid-template-columns: repeat(4, 1fr); }
+  .lp-nav__phone { margin-left: auto !important; }
+}
+
+@media (max-width: 860px) {
+  .lp-figs__grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-figs__grid div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
+  .lp-figs__grid div:nth-child(-n+2) { border-top: 0; }
+  .lp-form__in { grid-template-columns: 1fr; }
+  .lp-cases__grid { grid-template-columns: 1fr; }
+  .lp-logos__grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .lp { padding-bottom: 64px; }
+  .lp-call {
+    display: flex; align-items: center; justify-content: center; position: fixed; z-index: 60;
+    left: 16px; right: 16px; bottom: 12px; height: 50px; background: var(--red); color: #fff;
+    font-family: 'Mont', system-ui, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .1em;
+    text-transform: uppercase; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,.25);
+  }
+}
+
+@media (max-width: 560px) {
+  .zf__row { grid-template-columns: 1fr; }
+  .zf__send { justify-self: stretch; min-width: 0; }
+  .lp-nav__phone { font-size: 14px; }
+  .lp-hero__cta .btn { width: 100%; }
+}
