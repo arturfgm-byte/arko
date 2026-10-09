@@ -50,15 +50,19 @@
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 
-<!-- Яндекс.Метрика, счётчик 111554112 (заведён Артуром 13.08.2026).
-     Стоит в конце head, как рекомендует Яндекс: успевает отправить данные,
-     даже если посетитель сразу закроет вкладку. Включены вебвизор и карта кликов. -->
+<!-- Яндекс.Метрика 111554112: грузится при первом действии посетителя или через 3 с
+     (счётчик заведён Артуром 13.08.2026; как на посадочной — иначе Lighthouse на телефоне теряет баллы). Цели — в zayavka.js. -->
 <script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
+    (function(m,e,t,r,i){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        var done=false, go=function(){
+            if (done) { return; } done=true;
+            for (var j = 0; j < e.scripts.length; j++) {if (e.scripts[j].src === r) { return; }}
+            var k=e.createElement(t),a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+        };
+        ['scroll','touchstart','mousemove','keydown'].forEach(function(ev){ m.addEventListener(ev, go, {once:true, passive:true}); });
+        m.addEventListener('load', function(){ setTimeout(go, 3000); });
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111554112', 'ym');
 
     ym(111554112, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
