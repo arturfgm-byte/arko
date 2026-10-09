@@ -177,3 +177,12 @@
   .lp-nav__phone { font-size: 14px; }
   .lp-hero__cta .btn { width: 100%; }
 }
+
+/* Карточка-ссылка на страницу объекта (/proekty/<slug>/) — с 09.10.2026 */
+a.lp-case { color: inherit; text-decoration: none; transition: box-shadow .2s, transform .2s; }
+a.lp-case:hover { box-shadow: 0 10px 28px rgba(0,0,0,.12); transform: translateY(-2px); }
+a.lp-case:hover .lp-case__name { color: var(--red); }
+.lp-case__go { display: inline-block; margin-top: 14px; font-family: 'Mont', system-ui, sans-serif;
+               font-weight: 700; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+               border-bottom: 2px solid var(--red); padding-bottom: 4px; }
+.lp-case[hidden] { display: none; }

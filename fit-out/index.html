@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="lp.css">
+<link rel="stylesheet" href="../pages.css">
 
 <!-- Яндекс.Метрика, счётчик 111554112 — тот же, что на главной. Цели — в ../zayavka.js.
      Скрипт Метрики с вебвизором тяжёлый для телефона (Lighthouse: −1 с блокировки потока), поэтому
@@ -46,22 +47,21 @@
 </head>
 <body class="lp">
 
-<!-- ТЕЛЕФОН ПОСАДОЧНОЙ: временно мобильный Артура (заявки на время теста принимает он, 07.10.2026).
-     Когда будет номер 8-800 Билайн Бизнес — заменить ВСЕ вхождения 79672647791 и «+7 (967) 264-77-91» в этом файле
-     и пересобрать сайт (docs/leadgen/yandex-direct/README.md, раздел «Телефон»). -->
+<!-- ТЕЛЕФОН ПОСАДОЧНОЙ: 8 800 770-77-42 (Билайн Бизнес), с 09.10.2026. -->
 
 <header class="nav is-stuck lp-nav" id="nav">
   <div class="nav__in">
     <a class="lp-nav__logo" href="../" aria-label="АРКО — главная страница">
       <img src="../assets/logo/arko-logo.svg" alt="АРКО" width="96" height="30">
     </a>
+    <!-- build:menu --><details class="svc"><summary>Услуги</summary><div class="svc__list"><a href="../fit-out/" aria-current="page">Fit-out офисов</a><a href="../otdelka-ofisov/">Отделка офисов</a><a href="../restorany-i-kafe/">Рестораны и кафе</a><a href="../otdeleniya-bankov/">Отделения банков</a><a href="../kommercheskie-pomeshcheniya/">Коммерческие помещения</a><a href="../generalnyi-podryad/">Генеральный подряд</a><a href="../proektirovanie/">Проектирование</a><a class="svc__all" href="../proekty/">Все проекты →</a></div></details><!-- /build:menu -->
     <nav class="nav__links" aria-label="Разделы страницы">
       <a href="#keysy">Кейсы</a>
       <a href="#kak-rabotaem">Как работаем</a>
       <a href="#zayavka">Заявка</a>
       <a href="#kontakty">Контакты</a>
     </nav>
-    <a class="nav__phone lp-nav__phone" href="tel:+79672647791">+7 (967) 264-77-91</a>
+    <a class="nav__phone lp-nav__phone" href="tel:+78007707742">8 800 770-77-42</a>
   </div>
 </header>
 
@@ -74,7 +74,7 @@
       сдача и гарантия. Одна команда и один ответственный за срок и бюджет.</p>
     <div class="lp-hero__cta">
       <a class="btn btn--red" href="#zayavka">Прислать планировку</a>
-      <a class="lp-hero__phone" href="tel:+79672647791">+7 (967) 264-77-91</a>
+      <a class="lp-hero__phone" href="tel:+78007707742">8 800 770-77-42</a>
     </div>
     <p class="lp-hero__note">Оценим бюджет по планировке за 3 рабочих дня</p>
   </div>
@@ -110,8 +110,8 @@
 <section class="lp-cases" id="keysy">
   <div class="wrap">
     <div class="head"><h2>Кейсы</h2><span class="head__en">projects</span></div>
-    <div class="lp-cases__grid" id="cases"></div>
-    <p class="lp-cases__more"><a href="../#projects">Все проекты на главной странице →</a></p>
+    <div class="lp-cases__grid" id="cases"><!-- build:cases --><a class="lp-case" href="../proekty/pmg-onegin/"><div class="lp-case__img"><img src="../assets/photos/pmg-onegin/pmg-10-launzh-shirokiy-thumb.jpg" alt="PMG Онегин — фотография объекта" loading="lazy" width="620" height="465"><span class="lp-case__tag">Офисы</span></div><div class="lp-case__body"><h3 class="lp-case__name">PMG Онегин</h3><p class="lp-case__lead">Сервисный офис на Малой Полянке: open space, переговорные, лаунж-зоны и комнаты отдыха. Полный цикл — от отделки до инженерных систем. Сдан в 2026 году.</p><p class="lp-case__works">Генеральный подрядчик · Внутренние отделочные работы · Инженерные работы</p><p class="lp-case__cities">Москва</p><span class="lp-case__go">Страница объекта →</span></div></a><a class="lp-case" href="../proekty/psb/"><div class="lp-case__img"><img src="../assets/photos/psb/psb-hd-reception-thumb.jpg" alt="ПСБ — фотография объекта" loading="lazy" width="620" height="465"><span class="lp-case__tag">Офисы</span></div><div class="lp-case__body"><h3 class="lp-case__name">ПСБ</h3><p class="lp-case__lead">Девять отделений банка в разных городах страны — от Москвы до Ейска. Один заказчик, один стандарт отделки, разные площадки и сроки.</p><p class="lp-case__works">Генеральный подрядчик · Отделочные и инженерные работы</p><p class="lp-case__cities">Москва · Пермь · Челябинск · Ейск · Тихорецк · Казань · Уфа</p><span class="lp-case__go">Страница объекта →</span></div></a><a class="lp-case" href="../proekty/carcade/"><div class="lp-case__img"><img src="../assets/photos/carcade/carcade-03-thumb.jpg" alt="Carcade — фотография объекта" loading="lazy" width="620" height="465"><span class="lp-case__tag">Офисы</span></div><div class="lp-case__body"><h3 class="lp-case__name">Carcade</h3><p class="lp-case__lead">Сеть офисов лизинговой компании (Газпромбанк Лизинг) в шести городах — от Санкт-Петербурга до Иркутска.</p><p class="lp-case__works">Генеральный подрядчик · Отделочные и инженерные работы</p><p class="lp-case__cities">Санкт-Петербург · Москва · Краснодар · Иркутск · Нижний Новгород · Казань</p><span class="lp-case__go">Страница объекта →</span></div></a><a class="lp-case" href="../proekty/gazpromneft/"><div class="lp-case__img"><img src="../assets/photos/gazpromneft/gazpromneft-01-thumb.jpg" alt="Газпромнефть — фотография объекта" loading="lazy" width="620" height="465"><span class="lp-case__tag">Офисы</span></div><div class="lp-case__body"><h3 class="lp-case__name">Газпромнефть</h3><p class="lp-case__lead">Офисные пространства в Ярославле и Челябинске.</p><p class="lp-case__works">Генеральный подрядчик · Отделочные и инженерные работы</p><p class="lp-case__cities">Ярославль · Челябинск</p><span class="lp-case__go">Страница объекта →</span></div></a><a class="lp-case" href="../proekty/sparkle/"><div class="lp-case__img"><img src="../assets/photos/sparkle/sparkle-02-thumb.jpg" alt="Sparkle — фотография объекта" loading="lazy" width="620" height="465"><span class="lp-case__tag">Кафе и рестораны</span></div><div class="lp-case__body"><h3 class="lp-case__name">Sparkle</h3><p class="lp-case__lead">Заведение общественного питания в Москве — короткие сроки, работа в действующем здании.</p><p class="lp-case__works">Генеральный подрядчик · Отделочные и инженерные работы</p><p class="lp-case__cities">Москва</p><span class="lp-case__go">Страница объекта →</span></div></a><a class="lp-case" href="../proekty/teatr-kamala/"><div class="lp-case__img"><img src="../assets/photos/teatr-kamala/teatr-kamala-02-thumb.jpg" alt="Театр Камала — фотография объекта" loading="lazy" width="620" height="465"><span class="lp-case__tag">Общественные пространства</span></div><div class="lp-case__body"><h3 class="lp-case__name">Театр Камала</h3><p class="lp-case__lead">Отделочные работы в здании Татарского академического театра имени Галиасгара Камала в Казани.</p><p class="lp-case__works">Отделочные работы</p><p class="lp-case__cities">Казань</p><span class="lp-case__go">Страница объекта →</span></div></a><!-- /build:cases --></div>
+    <p class="lp-cases__more"><a href="../proekty/">Все проекты с фотографиями →</a></p>
   </div>
 </section>
 
@@ -135,7 +135,7 @@
 <section class="lp-logos" aria-label="Клиенты">
   <div class="wrap">
     <div class="head"><h2>Нам доверяют</h2><span class="head__en">clients</span></div>
-    <div class="lp-logos__grid" id="logos"></div>
+    <div class="lp-logos__grid" id="logos"><!-- build:logos --><img src="../assets/clients/partner-psb-new.png" alt="" loading="lazy"><img src="../assets/clients/partner-gazpromneft-full.png" alt="" loading="lazy"><img src="../assets/clients/partner-vtb.png" alt="" loading="lazy"><img src="../assets/clients/partner-pik.png" alt="" loading="lazy"><img src="../assets/clients/partner-danone.png" alt="" loading="lazy"><img src="../assets/clients/partner-adidas.png" alt="" loading="lazy"><img src="../assets/clients/partner-carcade.png" alt="" loading="lazy"><img src="../assets/clients/partner-pmg-onegin.png" alt="" loading="lazy"><img src="../assets/clients/partner-officeflex.png" alt="" loading="lazy"><img src="../assets/clients/partner-aspace.png" alt="" loading="lazy"><img src="../assets/clients/partner-step.png" alt="" loading="lazy"><img src="../assets/clients/partner-drt.png" alt="" loading="lazy"><img src="../assets/clients/partner-ancor.png" alt="" loading="lazy"><img src="../assets/clients/partner-pgk-full.png" alt="" loading="lazy"><img src="../assets/clients/partner-ostrov.png" alt="" loading="lazy"><img src="../assets/clients/partner-teremok.png" alt="" loading="lazy"><img src="../assets/clients/partner-sparkle.png" alt="" loading="lazy"><img src="../assets/clients/partner-kamala.png" alt="" loading="lazy"><img src="../assets/clients/partner-ascreen.png" alt="" loading="lazy"><img src="../assets/clients/partner-restada.png" alt="" loading="lazy"><img src="../assets/clients/partner-fix.png" alt="" loading="lazy"><img src="../assets/clients/partner-dataru.png" alt="" loading="lazy"><img src="../assets/clients/partner-autospot.png" alt="" loading="lazy"><!-- /build:logos --></div>
   </div>
 </section>
 
@@ -147,7 +147,7 @@
       <p class="lp-form__claim">Пришлите планировку — оценим бюджет за 3 рабочих дня</p>
       <p class="lp-form__note">Подойдёт PDF, DWG или фото плана. Нет планировки — опишите объект
         в комментарии, перезвоним и уточним.</p>
-      <p class="lp-form__or">Или позвоните:<br><a href="tel:+79672647791">+7 (967) 264-77-91</a></p>
+      <p class="lp-form__or">Или позвоните:<br><a href="tel:+78007707742">8 800 770-77-42</a></p>
     </div>
     <form class="zf" id="zayavka-form" novalidate>
       <div class="zf__row">
@@ -181,10 +181,10 @@
   <div class="wrap lp-contacts__in">
     <div>
       <p class="eyebrow">Звоните — ответим сразу</p>
-      <a class="lp-contacts__phone" href="tel:+79672647791">+7 (967) 264-77-91</a>
+      <a class="lp-contacts__phone" href="tel:+78007707742">8 800 770-77-42</a>
     </div>
     <ul class="lp-contacts__list">
-      <li><a href="mailto:fattakhov@ar-ko.ru">fattakhov@ar-ko.ru</a></li>
+      <li><a href="mailto:info@ar-ko.ru">info@ar-ko.ru</a></li>
       <li>Москва, ул. Садовническая, д. 72, стр. 1</li>
       <li><a href="../">ar-ko.ru — о компании</a></li>
     </ul>
@@ -192,16 +192,18 @@
 </section>
 
 <footer class="foot">
+  <!-- build:footnav --><div class="wrap"><nav class="foot__nav" aria-label="Услуги и разделы"><a href="../otdelka-ofisov/">Отделка офисов</a><a href="../restorany-i-kafe/">Рестораны и кафе</a><a href="../otdeleniya-bankov/">Отделения банков</a><a href="../kommercheskie-pomeshcheniya/">Коммерческие помещения</a><a href="../generalnyi-podryad/">Генеральный подряд</a><a href="../proektirovanie/">Проектирование</a><a href="../fit-out/">Fit-out офисов</a><a href="../proekty/">Проекты</a><a href="../">О компании</a></nav></div><!-- /build:footnav -->
   <div class="wrap foot__in">
     <p>ООО «АРКО» (ARKO) · ИНН 9705186470 · ОГРН 1227700858197</p>
     <p><a href="../politika.html">Политика обработки персональных данных</a></p>
   </div>
 </footer>
 
-<a class="lp-call" href="tel:+79672647791" aria-label="Позвонить">Позвонить</a>
+<a class="lp-call" href="tel:+78007707742" aria-label="Позвонить">Позвонить</a>
 
 <script src="../data/projects.js" defer></script>
 <script src="lp.js" defer></script>
 <script src="../zayavka.js" defer></script>
+<script src="../pages.js" defer></script>
 </body>
 </html>

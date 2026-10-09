@@ -127,6 +127,35 @@ h1, h2, h3, .num, .display {
 }
 .nav.is-stuck .nav__phone { color: var(--ink); }
 
+/* Меню «Услуги» — на всех страницах. <details> работает без JS; pages.js закрывает его
+   по щелчку мимо и по Esc. */
+.svc { margin-left: auto; position: relative; }
+.svc + .nav__links { margin-left: 0; }
+.svc summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px;
+  font-family: 'Mont', system-ui, sans-serif; font-weight: 600; font-size: 12px;
+  letter-spacing: .1em; text-transform: uppercase; color: #fff; padding: 6px 0;
+  border-bottom: 2px solid transparent;
+}
+.svc summary::-webkit-details-marker { display: none; }
+.svc summary::after { content: '▾'; font-size: 11px; transition: transform .2s; }
+.svc[open] summary::after { transform: rotate(180deg); }
+.svc summary:hover { border-bottom-color: var(--red); }
+.nav.is-stuck .svc summary { color: var(--ink); }
+.svc__list {
+  position: absolute; top: calc(100% + 10px); left: -18px; min-width: 300px; z-index: 60;
+  background: #fff; box-shadow: 0 12px 34px rgba(0,0,0,.16); padding: 10px 0;
+  display: flex; flex-direction: column;
+}
+.svc__list a {
+  color: var(--ink); text-decoration: none; padding: 10px 20px; font-size: 15px;
+  border-left: 3px solid transparent;
+}
+.svc__list a:hover, .svc__list a[aria-current] { border-left-color: var(--red); background: var(--panel); }
+.svc__list .svc__all { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 14px;
+  font-family: 'Mont', system-ui, sans-serif; font-weight: 600; font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase; }
+
 /* ---------- титул ---------- */
 
 /* ---------- тёмная зона: титул + о нас + почему мы ---------- */
@@ -392,13 +421,15 @@ h1, h2, h3, .num, .display {
                      color: var(--mute); }
 .case__lead { display: none; }
 /* «Смотреть все фото» — под текстом кейса, в языке списка работ: капс Mont, красная черта */
-.case__all { margin-top: 1.8cqw; display: inline-flex; align-items: center; gap: .9cqw;
+.case__all, .case__page { margin-top: 1.8cqw; display: inline-flex; align-items: center; gap: .9cqw;
              font-family: 'Mont', system-ui, sans-serif; font-weight: 700; font-size: 1.15cqw;
              letter-spacing: .09em; text-transform: uppercase; color: var(--ink); background: none;
              border: 0; border-bottom: .2cqw solid var(--red); padding: 0 0 .5cqw; cursor: pointer; }
-.case__all::after { content: '→'; color: var(--red); transition: transform .2s; }
-.case__all:hover { color: var(--red); }
-.case__all:hover::after { transform: translateX(.5cqw); }
+.case__all::after, .case__page::after { content: '→'; color: var(--red); transition: transform .2s; }
+.case__all:hover, .case__page:hover { color: var(--red); }
+.case__all:hover::after, .case__page:hover::after { transform: translateX(.5cqw); }
+/* «Страница объекта» — ссылка рядом с «Смотреть все фото» (страницы /proekty/<slug>/) */
+.case__page { margin-left: 2cqw; text-decoration: none; }
 
 /* ---------- клиенты ---------- */
 
@@ -471,6 +502,18 @@ h1, h2, h3, .num, .display {
 
 .foot { background: var(--ink); color: rgba(255,255,255,.7); padding: 26px 0; font-size: 13px; }
 .foot__in { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.foot a { color: inherit; }
+/* Ссылки на услуги и разделы — во всех подвалах (перелинковка для поиска) */
+.foot__nav { display: flex; flex-wrap: wrap; gap: 10px 26px; padding-bottom: 20px; margin-bottom: 20px;
+             border-bottom: 1px solid rgba(255,255,255,.14); }
+.foot__nav a { color: #fff; text-decoration: none; font-size: 14px; }
+.foot__nav a:hover { color: var(--red); }
+/* Ссылки на страницы услуг под четырьмя направлениями на главной */
+.services__more { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: baseline;
+                  color: var(--mute); font-size: 15px; }
+.services__more a { color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--red);
+                    padding-bottom: 2px; font-weight: 600; }
+.services__more a:hover { color: var(--red); }
 
 /* ---------- просмотр фотографии ---------- */
 
@@ -496,6 +539,18 @@ h1, h2, h3, .num, .display {
   .geo__grid { grid-template-columns: 1fr; }
   .panel { min-height: 0; }
   .nav__links { display: none; }
+  .svc ~ .lp-nav__phone, .svc ~ .nav__phone { margin-left: 0 !important; }
+}
+@media (max-width: 700px) {
+  /* на телефоне список — на всю ширину под шапкой */
+  .svc { position: static; }
+  .svc__list { position: fixed; top: 58px; left: 0; right: 0; min-width: 0; max-height: calc(100vh - 58px);
+               overflow-y: auto; }
+}
+@media (max-width: 560px) {
+  .nav__in { gap: 14px; }
+  .lp-nav .lp-nav__logo img, .nav__logo img { height: 24px; width: auto; }
+  .nav__phone { font-size: 12px; }
 }
 
 @media (max-width: 860px) {
@@ -531,7 +586,8 @@ h1, h2, h3, .num, .display {
   .case__cities { margin-top: 14px; gap: 4px 14px; }
   .case__cities span { font-size: 11px; }
   .case__lead { display: block; color: var(--mute); font-size: 14px; margin-top: 14px; }
-  .case__all { font-size: 12px; margin-top: 18px; gap: 8px; border-bottom-width: 2px; padding-bottom: 6px; }
+  .case__all, .case__page { font-size: 12px; margin-top: 18px; gap: 8px; border-bottom-width: 2px; padding-bottom: 6px; }
+  .case__page { margin-left: 18px; }
   /* ярлык на телефоне встаёт в поток: в углу он ложился поверх текста */
   .tag { position: static; grid-column: 1 / -1; justify-self: start; height: 34px;
          font-size: 11px; padding: 0 18px; margin: 0 0 24px var(--field);

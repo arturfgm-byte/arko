@@ -108,8 +108,9 @@
 
   /* ---------- кейсы ---------- */
 
+  // кейсы и логотипы build_site.py уже вписал в HTML; строим только если разметки нет
   var casesBox = byId('cases');
-  CASES.forEach(function (id) {
+  if (!casesBox.children.length) CASES.forEach(function (id) {
     var c = clients[id];
     if (!c) { return; }
     var card = el('article', 'lp-case');
@@ -138,7 +139,7 @@
   /* ---------- логотипы ---------- */
 
   var logos = byId('logos');
-  D.partners.forEach(function (name) {
+  if (!logos.children.length) D.partners.forEach(function (name) {
     if (HIDDEN_LOGOS.indexOf(name) >= 0) { return; }
     var img = el('img');
     img.src = UP + 'assets/clients/partner-' + name + '.png';

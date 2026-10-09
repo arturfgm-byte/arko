@@ -62,8 +62,10 @@
     [D.stats.objects, 'реализованных объекта'],
     [D.stats.teams, 'проектных команд']
   ];
+  // цифры, кейсы и логотипы build_site.py уже вписал в HTML (видно без JS и поисковикам);
+  // строим их здесь только если разметки нет — например, страницу собрали старым скриптом
   var figBox = byId('figures');
-  figures.forEach(function (f) {
+  if (!figBox.children.length) figures.forEach(function (f) {
     var wrap = el('div', 'figure');
     wrap.appendChild(el('div', 'figure__num', f[0]));
     wrap.appendChild(el('div', 'figure__cap', f[1]));
@@ -191,7 +193,7 @@
   /* ---------- кейсы ---------- */
 
   var casesBox = byId('cases');
-  D.clients.forEach(function (c) {
+  if (!casesBox.children.length) D.clients.forEach(function (c) {
     var section = el('section', 'case');
     section.id = 'case-' + c.id;
     var g = c.gallery || [];
@@ -253,7 +255,10 @@
   var half = Math.ceil(D.partners.length / 2);
   var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var BASE = still ? 0 : 28, MAX = 320;            // пикселей в секунду
-  var rows = [D.partners.slice(0, half), D.partners.slice(half)].map(function (names, r) {
+  var ready = partners.querySelectorAll('.marquee__track');
+  var rows = ready.length ? Array.prototype.map.call(ready, function (track, r) {
+    return { track: track, dir: r ? 1 : -1, x: 0, v: BASE, target: BASE };
+  }) : [D.partners.slice(0, half), D.partners.slice(half)].map(function (names, r) {
     var line = el('div', 'marquee__row');
     var track = el('div', 'marquee__track');
     for (var k = 0; k < 2; k++) {                  // две копии подряд — лента без шва
