@@ -85,47 +85,6 @@
 .lp-logos__grid img { max-height: 42px; width: auto; max-width: 100%; margin: 0 auto;
                       filter: grayscale(1); opacity: .75; }
 
-/* ---------- форма ---------- */
-
-.lp-form { background: #0b0b0b; color: #fff; padding: clamp(56px, 7vw, 110px) 0; }
-.lp-form__in { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
-.lp-form__claim { font-family: 'Mont', system-ui, sans-serif; font-weight: 800; text-transform: uppercase;
-                  font-size: clamp(24px, 2.8vw, 38px); line-height: 1.12; margin: 26px 0 18px; }
-.lp-form__note { color: rgba(255,255,255,.75); }
-.lp-form__or { margin-top: 30px; color: rgba(255,255,255,.75); }
-.lp-form__or a { font-family: 'Mont', system-ui, sans-serif; font-weight: 800; color: #fff;
-                 text-decoration: none; font-size: clamp(22px, 2.2vw, 30px); }
-.lp-form__or a:hover { color: var(--red); }
-
-.zf { display: grid; gap: 16px; background: #fff; color: var(--ink); padding: clamp(22px, 3vw, 40px); }
-.zf__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.zf label { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; color: #333; min-width: 0; }
-.zf__l b { color: var(--red); font-weight: 600; }
-.zf input:not([type="checkbox"]):not([type="file"]), .zf textarea {
-  font: inherit; font-size: 16px; color: var(--ink); width: 100%;   /* 16px — чтобы iPhone не увеличивал страницу */
-  border: 1px solid #cfcfcf; border-radius: 0; padding: 12px 13px; background: #fff;
-}
-.zf input:focus, .zf textarea:focus { outline: 2px solid var(--ink); outline-offset: -1px; border-color: var(--ink); }
-.zf textarea { resize: vertical; min-height: 88px; }
-.zf__file { position: relative; }
-.zf__file input { position: absolute; inset: auto 0 0 0; height: 46px; opacity: 0; cursor: pointer; width: 100%; }
-.zf__file-btn { display: inline-block; align-self: flex-start; border: 1px solid var(--ink); padding: 12px 16px;
-                font-family: 'Mont', system-ui, sans-serif; font-weight: 600; font-size: 11px;
-                letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
-.zf__file:hover .zf__file-btn { background: var(--ink); color: #fff; }
-.zf__file .zf__file-name { color: var(--mute); font-size: 12.5px; font-weight: 400; overflow-wrap: anywhere; }
-.zf__file:focus-within .zf__file-btn { outline: 2px solid var(--red); outline-offset: 2px; }
-.zf__trap { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.zf__consent { flex-direction: row !important; align-items: flex-start; gap: 10px !important; font-weight: 400 !important; }
-.zf__consent input { width: 18px; height: 18px; margin-top: 2px; flex: none; accent-color: var(--red); }
-.zf__consent span { color: #444 !important; font-size: 13px; }
-.zf__send { justify-self: start; min-width: 240px; }
-.zf__send:disabled { opacity: .6; cursor: wait; }
-.zf__status { font-size: 14px; min-height: 1.4em; }
-.zf__status--ok { color: #0a7a2f; font-weight: 600; }
-.zf__status--err { color: var(--red); }
-.zf.is-sent .zf__send { background: var(--ink); }
-
 /* ---------- контакты ---------- */
 
 .lp-contacts { padding: clamp(50px, 6vw, 90px) 0; }
@@ -159,7 +118,6 @@
   .lp-figs__grid { grid-template-columns: repeat(2, 1fr); }
   .lp-figs__grid div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); }
   .lp-figs__grid div:nth-child(-n+2) { border-top: 0; }
-  .lp-form__in { grid-template-columns: 1fr; }
   .lp-cases__grid { grid-template-columns: 1fr; }
   .lp-logos__grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .lp { padding-bottom: 64px; }
@@ -172,8 +130,6 @@
 }
 
 @media (max-width: 560px) {
-  .zf__row { grid-template-columns: 1fr; }
-  .zf__send { justify-self: stretch; min-width: 0; }
   .lp-nav__phone { font-size: 14px; }
   .lp-hero__cta .btn { width: 100%; }
 }
